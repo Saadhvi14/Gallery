@@ -1,184 +1,211 @@
-
+html{
+    scroll-behavior: smooth;
+}
 body {
-    background-color: #dedede;
+    background-color: #f5f5f5;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family:Arial, sans-serif;
 }
 
 h1 {
     text-align: center;
     font-family:Arial, sans-serif;
-    font-size: 32px;
+    font-size: 1.95em;
 }
 
-a {
-    color: #000;
-    text-decoration: none;
-    font-family:Arial, sans-serif;
+h2{
+    text-align:center;
+  }
+
+li{
+    margin-top: 20px;
 }
 
-p {
-   font-size: 25px;
-   font-family:Arial, sans-serif;
+main p{
+    max-width: 700px;
+    margin: 0 auto 1em auto;
+    line-height: 1.6;
 }
 
 img{
-  width:100%;
+    /* border: 5px solid blue; */
+    border-radius: 35px;
+    width: 100%;
+    /* max-width: 300px; */
+    height: auto;
+    display: block;
+  }
+
+figure{
+    background: #ffffff;
+    border: 2px solid #333333;
+    border-radius: 35px;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* box-sizing: border-box; */
 }
 
-
-p{
-  text-align:center;
+figcaption {
+    text-align: center;
+    font-size: 1em;
+    color: #222;
+    margin-top: 8px;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    /* background: none; /* No background */
+    /* position: static; Not absolute */ 
 }
 
-div img{
-    width:150px;
-    height: 150px;
-    display:block;
-    margin:auto;
-}
+/* .label{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+} */
 
-div{
-  display: inline-block;
-  width: 24%;
-  margin: 5px;
-  padding: 2px;
-}
-
-@media all and (max-width: 771px){
-    div{
-        width: 95vw;
-        display: block;
-        margin: 10px auto;
-        padding: 5px;
-    }
-
-    div img{
-        width: 100%;
-        height: auto;
-        max-height: 40vh;
-        display: block;
-        margin: auto;
-    }
-}
-
-@media all and (min-width: 772px){
-
-    div{
-        width: 45vw;
-        display: inline-block;
-        vertical-align: top;
-    }
-
-    div img{
-        max-height: 30vh;
-        width: 100%;
-        display: block;
-        /* overflow: auto; */
-        height: auto;
-        margin: auto;
-    }
-}
-
-@media all and (min-width: 998px){
-    div{
-        width: 30vw;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-main {
-    border: 5px #000 solid;
-    margin: 10px;
-}
- */
-/* 
-
-.container {
+.grid{
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 900px;
 }
- */
-/* img{
-    width: 200px;
-    height: 200px;
-    padding: 5px;
+
+
+/* Tablet View: 2 columns, circular figures, last spans both columns */
+/* @media (min-width: 772px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    figure {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        width: 100%;
+    }
+    .grid figure:last-child {
+        grid-column: span 2;
+    }
 } */
 
-/* .child {
-    position: relative;
-    display: inline-block;
-    border: 5px black solid;
-    margin: 5px;
-    border-radius: 5px;
-} */
 
-/* 
 
-.label {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-} */
-/* 
-.button {
-    display: inline-block;
-    border: 2px solid #000;
-    padding: 5px;
-    border-radius: 25px;
+
+/* Large Screen View: 2 columns, every third spans both columns, no border radius */
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    figure {
+        border: 4px solid rgb(0, 0, 0);
+        border-radius: 35px;
+        aspect-ratio: auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background: #fff;
+        box-sizing: border-box;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 35px;
+        display: block;
+        
+    }
+
+    figcaption {
+        position: static;
+        width: 100%;
+        background: none;
+        color: #222;
+        font-size: 1em;
+        text-align: center;
+        padding: 8px 0;
+        box-sizing: border-box;
+        margin: 0;
+        border-radius: 0;
+        /* Ensure figcaption is visible */
+        display: block;
+    }
+
+    .grid figure:nth-child(3n) {
+        grid-column: span 2;
+    }
 }
- */
-/* 
-.button:hover {
-    background-color:#fff;
-} */
 
-/* 
-footer {
-    display: flex;
-    justify-content: center;
-} */
+/* Accessibility: prefers-reduced-motion disables smooth scroll */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
 
-/* 
-header {
-    border-radius: 5px;
-    border: 5px #000 solid;
-    margin: 10px;
-} */
+/* Dark Mode: dark background, light text, black border */
+@media (prefers-color-scheme: dark) {
+    figure {
+        background: #222;
+        color: #ffe066;
+        border-color: #000;
+    }
+    figcaption {
+        color: #ffe066;
+    }
+    img {
+        border-color: #000;
+    }
+}
 
-/* 
-.label {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-} */
-/* 
-.child:hover .label {
-    display: block;
-} */
+/* Responsive: Ensure images never overflow */
+@media (max-width: 500px) {
+    img {
+        max-width: 95vw;
+    }
+}
+
+@media (min-width: 772px) and (max-width: 991px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    figure {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background: #fff;
+        box-sizing: border-box;
+        padding: 0;
+    }
+    .grid figure:last-child {
+        grid-column: span 2;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+        display: block;
+    }
+    figcaption {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        color: #ffffff;
+        font-size: 1em;
+        padding: 4px 0;
+        border-radius: 0;
+        display: block;
+    }
+}
